@@ -1,0 +1,23 @@
+## roles/update/tasks/main.yml
+## Role main file
+# vim:ft=ansible:
+---
+## Launch apropriate protocol in regards of package manager.
+- include: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.yml"
+    - "{{ ansible_os_family }}.yml"
+  tags: update
+
+  ## The section above is yet untested, the following solution works though.
+  #- include: Archlinux.yml
+  #  when: "'Archlinux' in ansible_distribution"
+  #- include: CentOS.yml
+  #  when: "'CentOS' in ansible_distribution"
+  #- include: Fedora.yml
+  #  when: "'Fedora' in ansible_distribution"
+  #- include: Ubuntu.yml
+  #  when: "'Ubuntu' in ansible_distribution"
+  #- include: Linuxmint.yml
+  #  when: "'Linuxmint' in ansible_distribution"
+...

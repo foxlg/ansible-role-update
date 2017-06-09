@@ -1,0 +1,9 @@
+## roles/update/tasks/Fedora.yml
+## Role main file
+# vim:ft=ansible:
+---
+- name: upgrade all packages
+  dnf:
+    name: "*"
+    state: latest
+...

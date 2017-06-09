@@ -1,0 +1,14 @@
+## roles/update/tasks/CentOS.yml
+## Role main file
+# vim:ft=ansible:
+---
+- name: epel
+  yum:
+    name: epel-release
+    state: present
+
+- name: Update all packages (Yum-based distros)
+  yum:
+    name: '*'
+    state: latest
+...

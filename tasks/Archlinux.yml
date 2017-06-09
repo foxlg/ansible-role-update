@@ -1,0 +1,22 @@
+## roles/update/tasks/Archlinux.yml
+## Role main file
+# vim:ft=ansible:
+---
+- name: Update all non-AUR packages (Pacman-based distros)
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: Update AUR-packages with yaourt
+  command: yaourt -Syu --noconfirm
+  become: yes
+  become_user: '{{ update_user }}'
+  when: "'yaourt' in aur_app"
+
+- name: Update AUR-packages with pacaur
+  command: pacaur -Syu --noconfirm --needed --noprogressbar
+  become: yes
+  become_user: '{{ update_user }}'
+  when: "'pacaur' in aur_app"
+
+...

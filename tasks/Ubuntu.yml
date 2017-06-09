@@ -1,0 +1,8 @@
+## roles/update/tasks/Ubuntu.yml
+## Role main file
+# vim:ft=ansible:
+---
+- name: Update system (Ubuntu)
+  apt:
+    upgrade: dist
+...
