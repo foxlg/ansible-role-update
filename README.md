@@ -13,7 +13,7 @@ Compatible and tested with:
 ## Role Variables
 | Variable                       | Default                          | Comments (type)  |
 | :---                           | :---                             | :---             |
-| update_user | foo | Declares the user as which {{ aur_app }} is run |
+| as_user | foo | Declares the user as which {{ aur_app }} is run |
 | aur_app | yaourt | (yaourt/pacaur) |
 
 ## Dependencies
@@ -23,7 +23,7 @@ No role dependencies
 ```Yaml
 - hosts: foo
   roles:
-    - { role: update, update_user: moocow, aur_app: yaourt }
+    - { role: update, as_user: moocow, aur_app: yaourt }
 ```
 
 ## Testing

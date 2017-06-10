@@ -10,13 +10,13 @@
 - name: Update AUR-packages with yaourt
   command: yaourt -Syu --noconfirm
   become: yes
-  become_user: '{{ update_user }}'
+  become_user: '{{ as_user }}'
   when: "'yaourt' in aur_app"
 
 - name: Update AUR-packages with pacaur
   command: pacaur -Syu --noconfirm --needed --noprogressbar
   become: yes
-  become_user: '{{ update_user }}'
+  become_user: '{{ as_user }}'
   when: "'pacaur' in aur_app"
 
 ...

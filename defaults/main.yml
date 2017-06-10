@@ -2,7 +2,7 @@
 # Default lower priority variables for the role
 # vim:ft=ansible:
 ---
-update_user: foo
+as_user: foo
 aur_app: yaourt
 ...
 
