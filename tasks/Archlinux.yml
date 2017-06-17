@@ -2,6 +2,21 @@
 ## Role main file
 # vim:ft=ansible:
 ---
+- name: "Unlock pacman ... use with caution! :p"
+  file:
+    path: /var/lib/pacman/db.lck
+    state: absent
+
+- name: Pacman.conf
+  template:
+    src: pacman.conf.j2
+    dest: /etc/pacman.conf
+
+- name: Proper mirrorlist
+  template:
+    src: mirrorlist.j2
+    dest: /etc/pacman.d/mirrorlist
+
 - name: Update all non-AUR packages (Pacman-based distros)
   pacman:
     update_cache: yes
