@@ -3,7 +3,7 @@
 # vim:ft=ansible:
 ---
 ## Launch apropriate protocol in regards of package manager.
-- include: "{{ item }}"
+- include_tasks: "{{ item }}"
   with_first_found:
     - "{{ ansible_distribution }}.yml"
     - "{{ ansible_os_family }}.yml"
